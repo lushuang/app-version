@@ -222,7 +222,7 @@ export default {
                     return false;
                 }
 
-                let response = await http.post(`/user/changePassword`, {
+                let response = await http.post('/user/changePassword', {
                     oldPassword: md5(this.changingForm.oldPassword),
                     password: md5(this.changingForm.password),
                     passwordConfirm: md5(this.changingForm.passwordConfirm)
