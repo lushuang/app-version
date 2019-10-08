@@ -78,7 +78,6 @@ import {
     getGUID,
     hasValue
 } from '@/libs/util';
-import uploadFileToOSS from '@/libs/oss';
 var minio = require('minio');
 var minioClient = new minio.Client({
     endPoint: process.env.VUE_APP_MINIO_ENDPOINT,
