@@ -12,7 +12,7 @@ mvn clean package -Dmaven.test.skip=true -P fatjar docker:build
 
 cd ../../web/dashboard
 
-npm install
+npm install --unsafe-perm=true --allow-root
 
 npm run build:dev
 
