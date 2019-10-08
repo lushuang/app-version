@@ -235,7 +235,7 @@ export default {
                 } else {
                     this.$Notice.success({
                         title: '成功',
-                        desc: "密码已经修改，请重新登录"
+                        desc: '密码已经修改，请重新登录'
                     });
                     this.inChangingPassword = false;
                     this.handelLogout();
