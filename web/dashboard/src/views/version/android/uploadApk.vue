@@ -70,15 +70,9 @@
     </div>
 </template>
 <script>
-import {
-    getFileMd5,
-    getFileName,
-    fmtFileSize,
-    http,
-    getGUID,
-    hasValue
-} from '@/libs/util';
-var minio = require('minio');
+    import {fmtFileSize, getFileMd5, getFileName, getGUID, hasValue, http} from '@/libs/util';
+
+    var minio = require('minio');
 var minioClient = new minio.Client({
     endPoint: process.env.VUE_APP_MINIO_ENDPOINT,
     port: 9001,
@@ -213,23 +207,6 @@ export default {
                 file.ext
             }`;
 
-            // /**
-			//  * 上传至OSS
-			//  */
-            // uploadFileToOSS(
-            //     file.file,
-            //     file.name,
-            //     response => {
-            //         /**
-			// 		 * 创建 Apk
-			// 		 */
-            //         this.postApk(file, response.res.requestUrls[0]);
-            //     },
-            //     progress => {
-            //         file.percent = parseInt(progress) - 1 < 0 ? 0 : parseInt(progress) - 1;
-            //     }
-            // );
-
             /**
              *  上传文件到 minio 服务器
              */
@@ -245,18 +222,17 @@ export default {
                         if (err) {
                             return console.error(err);
                         }
-                        console.log("makeBucket successful")
-                    })
+                    });
                 }
                 // todo : 将 file 转 readsteam 进行上传 ？？
                 // 上传文件
 
-                let reader=new FileReader();
+                let reader = new FileReader();
                 reader.readAsArrayBuffer(file.file);
                 console.log(3);
-                reader.onload=function(e){
+                reader.onload = function (e) {
                     console.log(e.target.result);
-                    var arrbuffer=e.target.result;
+                    var arrbuffer = e.target.result;
                     var buf = new Buffer(arrbuffer.byteLength);
                     var view = new Uint8Array(arrbuffer);
                     for (var i = 0; i < buf.length; ++i) {
@@ -266,7 +242,7 @@ export default {
                         if (err) {
                             return console.error(err);
                         }
-                        console.log("file upload successful")
+                        console.log("file upload successful");
                     });
                 }
             });
