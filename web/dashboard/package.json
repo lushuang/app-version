@@ -16,7 +16,7 @@
     "ali-oss": "^5.2.0",
     "axios": "^0.18.0",
     "co": "^4.6.0",
-    "codemirror": "^5.39.0",
+    "codemirror": "^5.58.2",
     "filesize": "^3.6.1",
     "minio": "^7.0.12",
     "iview": "^3.2.2",
